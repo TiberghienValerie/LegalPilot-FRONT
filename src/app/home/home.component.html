@@ -1,0 +1,70 @@
+<section>
+    <div class="row">
+      <div class="col-12 col-sm-12 col-md-12">
+        <h1>Liste des joueurs</h1>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="researchBackground">
+    <app-form-recherche
+      [tabJoueurs]="tabJoueurs"
+      [mode]="mode"
+      (rechercheFormulaire)="rechercheFormulaire($event)"
+      (rechercheFormulaireMode)="rechercheFormulaireMode($event)"
+      (rechercheFormulaireUrl)="rechercheFormulaireUrl($event)"
+      (rechercheFormulaireNbEnregistrement)="rechercheFormulaireNbEnregistrement($event)"
+    ></app-form-recherche>
+  </section>
+
+
+  <section>
+    <div class="row mt-4">
+      <div
+        class="textContenuBold text-center align-self-center col-12 col-md-12 m-4"
+      >
+        {{ nbTotalEnregistrement }} joueurs
+      </div>
+    </div>
+    <div class="row mt-4">
+      <app-joueur
+        class="textContenuBold col-12 col-sm-6 col-md-6 mb-4"
+        *ngFor="let a of tabJoueursFilter"
+        [unJoueur]="a"
+      >
+      </app-joueur>
+      <div class="row mt-4 col-2 offset-5 ">
+        <button type="submit" class=" btnGeneral btn btn-display">
+            <a [routerLink]="['../combat']" title="Combat"
+          >Combat</a>
+        </button>
+      </div>
+     
+    </div>
+  </section>
+  
+  <!--<section>
+    <div class="row g-4 m-auto">
+      <div
+        id="navigationfooter"
+        class="col-12 col-md-12 pt-4 d-flex justify-content-center align-items-center"
+      >
+        <div class="row">
+          <div class="col-xs-12 col-12">
+           <pagination
+              [totalItems]="nbTotalEnregistrement"
+              [itemsPerPage]="resultatParPage"
+              (pageChanged)="pageChanged($event, url, mode)"
+              previousText="&lsaquo;"
+              nextText="&rsaquo;"
+              firstText="&laquo;"
+              lastText="&raquo;"
+            ></pagination>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>-->
+  
+

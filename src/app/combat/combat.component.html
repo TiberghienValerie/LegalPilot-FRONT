@@ -1,0 +1,116 @@
+
+ <div class="row">
+    <div class="col-4 col-sm-3 col-md-3">
+      <div class="d-flex">
+        <button id="menu" type="button" class="btnGeneral btn btn-display">
+          <a [routerLink]="['../home']" title="Retour">Retour</a>
+        </button>
+      </div>
+    </div>
+  </div>
+<form (ngSubmit)="onSubmit()" [formGroup]="myForm">
+
+    <div class="row m-3 p-2">
+        <div *ngIf="texte!=''" class="col-12 col-sm-4 col-md-4 alert alert-danger">
+                {{texte}}
+        </div>
+
+    </div>    
+
+    <div class="row m-3 p-2">
+      
+      <div class="col-12 col-sm-4 col-md-4">
+        <label for="equipe1">Equipe 1 : </label>
+        <select
+        id="equipe1"
+        name="equipe1"
+        content-type="choices"
+        trigger="true"
+        aria-label="equipe1"
+        class="shadows form-control form-select"
+        formControlName="equipe1"
+        >
+          <option value="0">Toutes les équipes</option>
+          <option *ngFor="let t of tabEquipes" value="{{ t.id }}">
+            {{ t.nomEquipe }}
+          </option>
+        </select>
+        <ul *ngIf="!myForm.controls['equipe1'].valid && myForm.controls['equipe1'].touched" class="alert alert-danger">
+            <li *ngIf="myForm.controls['equipe1'].hasError('required')">
+            Sélectionner une équipe 1
+            </li>
+        </ul>
+      </div>
+     
+     
+
+      <div class="col-12 col-sm-4 col-md-4">
+        <label for="equipe2">Equipe 2 : </label>
+        <select
+          id="equipe2"
+          name="equipe2"
+          content-type="choices"
+          trigger="true"
+          aria-label="equipe2"
+          class="shadows form-control form-select"
+          formControlName="equipe2"
+        >
+          <option value="0">Toutes les équipes</option>
+          <option *ngFor="let t of tabEquipes" value="{{ t.id }}">
+            {{ t.nomEquipe }}
+          </option>
+        </select>
+        <ul *ngIf="!myForm.controls['equipe2'].valid && myForm.controls['equipe2'].touched" class="alert alert-danger">
+            <li *ngIf="myForm.controls['equipe2'].hasError('required')">
+            Sélectionner une équipe 2
+            </li>
+        </ul>
+      </div>
+     
+
+
+   
+
+    </div>
+
+
+    
+    <div class="row">
+      <div
+        class="mb-5
+          marginbottom
+          col-12 col-sm-12 col-md-12
+          text-center
+          align-self-center
+        "
+      >
+        <button
+          type="submit"
+          class="btnGeneral btn btn-display"
+        >
+           <span> Go</span>
+        </button>
+      </div>
+    </div>
+
+
+
+    <div *ngIf="reponse!=''" class="row m-3 p-2">
+        <div  class="col-12 col-sm-4 col-md-4 alert alert-danger">
+                {{reponse}} 
+                <button
+                class="btnGeneral btn btn-display"
+                type="submit"
+                (click)="refresh()"
+              >Ok
+              </button>
+                
+        </div>
+       
+
+         
+    </div>    
+  </form>
+
+
+

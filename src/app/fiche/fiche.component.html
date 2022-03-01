@@ -1,0 +1,116 @@
+<section>
+    <div class="row">
+      <div class="col-4 col-sm-3 col-md-3">
+        <div class="d-flex">
+          <button id="menu" type="button" class="btnGeneral btn btn-display">
+            
+            <a [routerLink]="['../../home']" title="Retour">Retour</a>
+          </button>
+        </div>
+      </div>
+      <div class="col-8 col-sm-9 col-md-9">
+        <h1>{{ tabJoueursId[0].nom }} {{ tabJoueursId[0].prenom }}</h1> 
+      </div>
+    </div>
+  
+
+    <!-- informations-->
+    <div class="row">
+      <div class="col-12 col-md-12 mt-5 mb-3">
+        <div class="shadows">
+          <div class="row p-3">
+            <div class="col-4 col-md-4 textContenuBold">
+             
+            </div>
+            <div style="color:{{tabJoueursId[0].equipe.couleur}}" class="col-4 col-md-4 textContenuitalique text-center">
+              Avatar : {{tabJoueursId[0].avatar}}
+            </div>
+            <div style="color:{{tabJoueursId[0].equipe.couleur}}" class="textContenuColorBold col-4 col-md-4 text-right">
+                Nom de l'équipe : {{tabJoueursId[0].equipe.nomEquipe}}
+            </div>
+          </div>
+          <div class="row p-3">
+            <div
+              class="
+                col-3 col-md-3
+                d-flex
+                align-content-between
+                justify-content-start
+                align-items-center
+              "
+            >
+              <span class="ps-3 textContenu2">Point de défense (coefficient) : {{tabJoueursId[0].pointDefense}} (2)
+               </span
+              >
+            </div>
+            <div
+              class="
+                col-3 col-md-3
+                d-flex
+                align-content-between
+                justify-content-center
+                align-items-center
+              "
+            >
+              
+              <span class="ps-3 textContenu2">Point d'attaque (coefficient) : {{tabJoueursId[0].pointAttaque}} (2)
+               </span
+              >
+            </div>
+            <div
+              class="
+                col-3 col-md-3
+                d-flex
+                align-content-between
+                justify-content-end
+                align-items-center
+              "
+            >
+              
+              <span class="ps-3 textContenu2">Point de vitesse (coefficient) : {{tabJoueursId[0].pointVitesse}} (1.5)
+               </span
+              >
+            </div>
+
+            <div
+            class="
+              col-3 col-md-3
+              d-flex
+              align-content-between
+              justify-content-end
+              align-items-center
+            "
+          >
+            
+            <span class="ps-3 textContenu2">Point d'endurence (coefficient) : {{tabJoueursId[0].pointEndurence}} (2)
+             </span
+            >
+          </div>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+
+
+    <!--  statistiques Individuelle-->
+
+    <div id="container">
+    </div>
+
+
+
+    <!-- statistiques Equipes-->
+
+    
+
+    
+      <div id="container2">
+      </div>
+
+      
+
+
+  </section>
+  
+  

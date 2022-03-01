@@ -1,0 +1,42 @@
+<form (ngSubmit)="onSubmit()" #rechercheForm="ngForm">
+    <div class="row m-2 p-2">
+      
+      <div class="col-12 col-sm-4 col-md-4">
+        <label for="equipe">Equipe : </label>
+        <select
+          id="equipe"
+          name="equipe"
+          content-type="choices"
+          trigger="true"
+          aria-label="equipe"
+          class="shadows form-control form-select"
+          [(ngModel)]="equipe"
+        >
+          <option value="0">Toutes les équipes</option>
+          <option *ngFor="let t of tabEquipes" value="{{ t.id }}">
+            {{ t.nomEquipe }}
+          </option>
+        </select>
+      </div>
+    </div>
+    
+    <div class="row">
+      <div
+        class="
+          marginbottom
+          col-12 col-sm-12 col-md-12
+          text-center
+          align-self-center
+        "
+      >
+        <button
+          type="submit"
+          class="btnGeneral btn btn-display"
+          [disabled]="!rechercheForm.form.valid"
+        >
+           <span> Recherche</span>
+        </button>
+      </div>
+    </div>
+  </form>
+  

@@ -1,0 +1,22 @@
+<div class="mt-3 h-100 shadows w-100 p-3">
+    <div class="row height-90 mb-5">
+      <div class="col-8 col-sm-8 col-md-8">{{ unJoueur.nom }} {{ unJoueur.prenom }}</div>
+      <div style="color:{{unJoueur.equipe.couleur}}" class="textContenuColor col-sm-4 col-md-4 text-right">
+        {{unJoueur.avatar}}
+      </div>
+    </div>
+    <div class="row height-10">
+      <div class="col-12 col-sm-12 col-md-12 text-right">
+        <button style="background-color:{{unJoueur.equipe.couleur}}" type="submit" class="btnJoueur btn btn-display">
+          <a [routerLink]="['../fiche', unJoueur.id]" title="Plus d'informations"
+          > Plus d'informations
+        </a>
+        </button>
+    
+      </div>
+    </div>
+  </div>
+
+ 
+
+ 
