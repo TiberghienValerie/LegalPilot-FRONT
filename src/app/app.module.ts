@@ -16,6 +16,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FicheComponent } from './fiche/fiche.component';
 import { CombatComponent } from './combat/combat.component';
 import { HighchartsChartModule } from 'highcharts-angular';
+import { PaginationModule } from 'ngx-bootstrap/pagination';
 
 
 
@@ -40,6 +41,7 @@ import { HighchartsChartModule } from 'highcharts-angular';
     FormsModule,
     ReactiveFormsModule,
     HighchartsChartModule,
+    PaginationModule.forRoot(),
     JwtModule.forRoot({
       config: {
         tokenGetter: () => localStorage.getItem('access_token'),

@@ -63,7 +63,7 @@ export class FormRechercheComponent implements OnInit {
     this.serviceApiJoueur.getCollectionSearch(this.equipe).subscribe(
       
       (data) => {
-        console.log(data);
+
         this.nbTotalEnregistrement = data['hydra:totalItems'];
 
         for (let o of data['hydra:member']) {
@@ -80,7 +80,7 @@ export class FormRechercheComponent implements OnInit {
               o.pointVitesse,
               o.nbVictoire,
               o.nbDefaite,
-              new Equipe(o.equipe.id, o.equipe.nomEquipe, o.equipe.nbPartieGagne, o.equipe.nbPartiePerdue, o.equipe.nbPartieNull, o.equipe.couleur)
+              new Equipe(o.equipe.id, o.equipe.nomEquipe, o.equipe.nbPartieGagne, o.equipe.nbPartiePerdue, o.equipe.nbPartieNull, o.equipe.couleur, o.equipe.joueurs)
             ));
         }
 
@@ -106,9 +106,10 @@ export class FormRechercheComponent implements OnInit {
 
     this.serviceApiEquipe.getCollection(page).subscribe(
       (data) => {
+        
         for (let o of data['hydra:member']) {
           this.tabEquipes.push(
-            new Equipe(o.id, o.nomEquipe, o.nbPartieGagne, o.nbPartiePerdue, o.nbPartieNull, o.couleur)
+            new Equipe(o.id, o.nomEquipe, o.nbPartieGagne, o.nbPartiePerdue, o.nbPartieNull, o.couleur, o.joueurs)
           );
         }
       },

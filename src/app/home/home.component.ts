@@ -5,6 +5,7 @@ import { Equipe } from '../models/equipe.model';
 import { Joueur } from '../models/joueur.model';
 import { joueurApiService } from '../service/joueur-api.service';
 import {Collection} from "../models/collection";
+import { PageChangedEvent } from 'ngx-bootstrap/pagination';
 
 @Component({
   selector: 'app-home',
@@ -73,7 +74,7 @@ export class HomeComponent implements OnInit {
                 o.pointVitesse,
                 o.nbVictoire,
                 o.nbDefaite,
-                new Equipe(o.equipe.id, o.equipe.nomEquipe, o.equipe.nbPartieGagne, o.equipe.nbPartiePerdue, o.equipe.nbPartieNull, o.equipe.couleur)
+                new Equipe(o.equipe.id, o.equipe.nomEquipe, o.equipe.nbPartieGagne, o.equipe.nbPartiePerdue, o.equipe.nbPartieNull, o.equipe.couleur, o.equipe.joueurs)
               ));
           }
 
@@ -109,6 +110,51 @@ export class HomeComponent implements OnInit {
   }
 
   onSubmit() {}
+
+
+  pageChanged(event: PageChangedEvent, url: string, mode: string): void {
+
+    const startItem = (event.page - 1) * event.itemsPerPage;
+    const endItem = event.page * event.itemsPerPage;
+    url = url + event.page;
+    this.mode = mode;
+    this.tabJoueurs = [];
+    this.tabJoueursFilter = [];
+    this.serviceApiJoueur.getCollectionSpecifique(`${this.apiConnexion}${url}`).subscribe(
+        (data) => {
+          for (let o of data['hydra:member']) {
+          
+            this.tabJoueurs.push(
+              new Joueur(
+                o.id,
+                o.nom,
+                o.prenom,
+                o.avatar,
+                o.pointDefense,
+                o.pointAttaque,
+                o.pointEndurence,
+                o.pointVitesse,
+                o.nbVictoire,
+                o.nbDefaite,
+                new Equipe(o.equipe.id, o.equipe.nomEquipe, o.equipe.nbPartieGagne, o.equipe.nbPartiePerdue, o.equipe.nbPartieNull, o.equipe.couleur, o.equipe.joueurs)
+              ));
+          }
+
+          this.tabJoueursFilter.push(...this.tabJoueurs);
+
+          this.nbTotalEnregistrement = data['hydra:totalItems'];
+
+
+
+          if(this.mode=='nonRecherche') {
+            this.nbPages = parseInt(data['hydra:view']['hydra:last'].split(/\s*=\s*/)[1]);
+            this.url = (data['hydra:view']['hydra:last'].split(/\s*=\s*/))[0]+'=';
+          }else{
+            this.nbPages = parseInt(data['hydra:view']['hydra:last'].split(/\s*page=\s*/)[1]);
+            this.url = (data['hydra:view']['hydra:last'].split(/\s*page=\s*/))[0]+'page=';
+          }
+        });
+  }
 
 
 }

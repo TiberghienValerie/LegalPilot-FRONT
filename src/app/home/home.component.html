@@ -34,6 +34,35 @@
         [unJoueur]="a"
       >
       </app-joueur>
+
+      <section>
+        <div class="row g-4 m-auto">
+          <div
+            id="navigationfooter"
+            class="col-12 col-md-12 pt-4 d-flex justify-content-center align-items-center"
+          >
+            <div class="row">
+              <div class="col-xs-12 col-12">
+               <pagination
+                  [totalItems]="nbTotalEnregistrement"
+                  [itemsPerPage]="resultatParPage"
+                  (pageChanged)="pageChanged($event, url, mode)"
+                  previousText="&lsaquo;"
+                  nextText="&rsaquo;"
+                  firstText="&laquo;"
+                  lastText="&raquo;"
+                ></pagination>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+
+
+
+
       <div class="row mt-4 col-2 offset-5 ">
         <button type="submit" class=" btnGeneral btn btn-display">
             <a [routerLink]="['../combat']" title="Combat"
@@ -44,27 +73,6 @@
     </div>
   </section>
   
-  <!--<section>
-    <div class="row g-4 m-auto">
-      <div
-        id="navigationfooter"
-        class="col-12 col-md-12 pt-4 d-flex justify-content-center align-items-center"
-      >
-        <div class="row">
-          <div class="col-xs-12 col-12">
-           <pagination
-              [totalItems]="nbTotalEnregistrement"
-              [itemsPerPage]="resultatParPage"
-              (pageChanged)="pageChanged($event, url, mode)"
-              previousText="&lsaquo;"
-              nextText="&rsaquo;"
-              firstText="&laquo;"
-              lastText="&raquo;"
-            ></pagination>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>-->
+  
   
 

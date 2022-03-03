@@ -37,10 +37,16 @@ export class CombatComponent implements OnInit {
 
     this.serviceApiEquipe.getCollection(page).subscribe(
       (data) => {
+        
         for (let o of data['hydra:member']) {
-          this.tabEquipes.push(
-            new Equipe(o.id, o.nomEquipe, o.nbPartieGagne, o.nbPartiePerdue, o.nbPartieNull, o.couleur)
-          );
+          
+          
+            if(o.joueurs.length>0) {
+              this.tabEquipes.push(
+                new Equipe(o.id, o.nomEquipe, o.nbPartieGagne, o.nbPartiePerdue, o.nbPartieNull, o.couleur, o.joueurs)
+              );
+            }
+          
         }
       },
       () => {

@@ -1,3 +1,5 @@
+import { Joueur } from "./joueur.model";
+
 export class Equipe {
     constructor(
         public id: number,
@@ -6,5 +8,6 @@ export class Equipe {
         public nbPartiePerdue: number,
         public nbPartieNull: number,
         public couleur: string,
+        public joueurs: Joueur[]
       ) {}
 }

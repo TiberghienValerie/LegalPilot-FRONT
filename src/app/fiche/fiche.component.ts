@@ -70,7 +70,7 @@ export class FicheComponent implements OnInit {
               data.pointVitesse,
               data.nbVictoire,
               data.nbDefaite,
-              new Equipe(data.equipe.id, data.equipe.nomEquipe, data.equipe.nbPartieGagne, data.equipe.nbPartiePerdue, data.equipe.nbPartieNull, data.equipe.couleur)
+              new Equipe(data.equipe.id, data.equipe.nomEquipe, data.equipe.nbPartieGagne, data.equipe.nbPartiePerdue, data.equipe.nbPartieNull, data.equipe.couleur, data.equipe.joueurs)
             ));
         
             this.options = {
