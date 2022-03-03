@@ -25,3 +25,9 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+Il faudra bien penser à installer ce projet sous Docker, ce qui n'a pas eu fait car je n'ai pas les compétences. Je sais juste que front, il faudra angular, Boostrap, ainsi que des modules spécifiques import { HighchartsChartModule } from 'highcharts-angular';
+import { PaginationModule } from 'ngx-bootstrap/pagination';
+
+Pour ce qui est du back, il faudra absolument api platform avec lexik-jwt
+
